@@ -2,6 +2,8 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class UI {
     GameManager gm;
@@ -14,7 +16,7 @@ public class UI {
     {
         this.gm = gm;
         createMainField();
-        generateScreen();
+        generateScene();
         window.setVisible(true);
     }
 
@@ -42,7 +44,7 @@ public class UI {
         bgPanel[bgNum].setBounds(50, 50, 700, 350);
         bgPanel[bgNum].setBackground(Color.BLACK);
         bgPanel[bgNum].setLayout(null);
-        window.add(bgPanel[1]);
+        window.add(bgPanel[bgNum]);
 
         bgLabel[bgNum] = new JLabel();
         bgLabel[bgNum].setBounds(0, 0, 700, 350);
@@ -50,22 +52,85 @@ public class UI {
         ImageIcon bgIcon = new ImageIcon(getClass().getResource(bgFileName));
         bgLabel[bgNum].setIcon(bgIcon);
     }
-    public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String objFileName){
+    public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String objFileName, String choice1Name, String choice2Name, String choice3Name, String choice1Command, String choice2Command, String choice3Command){
+        //creating pop menu
+        JPopupMenu popMenu = new JPopupMenu();
+        JMenuItem menuItem[] = new JMenuItem[4];
+
+        //creating pop menu items
+        menuItem[1] = new JMenuItem(choice1Name);
+        menuItem[1].addActionListener(gm.aHandler);
+        menuItem[1].setActionCommand(choice1Command);
+        popMenu.add(menuItem[1]);
+
+        menuItem[2] = new JMenuItem(choice2Name);
+        menuItem[2].addActionListener(gm.aHandler);
+        menuItem[2].setActionCommand(choice2Command);
+        popMenu.add(menuItem[2]);
+
+        menuItem[3] = new JMenuItem(choice3Name);
+        menuItem[3].addActionListener(gm.aHandler);
+        menuItem[3].setActionCommand(choice3Command);
+        popMenu.add(menuItem[3]);
+
         JLabel objectLabel = new JLabel();
 //        objectLabel.setBounds(400, 150, 200, 200);
         objectLabel.setBounds(objx, objy, objWidth, objHeight);
         ImageIcon objectIcon = new ImageIcon(getClass().getResource(objFileName));
         objectLabel.setIcon(objectIcon);
 
-        bgPanel[bgNum].add(objectLabel);
-        bgPanel[bgNum].add(bgLabel[bgNum]);
-    }
+        objectLabel.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent e) {
 
-    public void generateScreen(){
-        //SCREEN1
+            }
+            public void mousePressed(MouseEvent e) {
+                if(SwingUtilities.isRightMouseButton(e))
+                {
+                    popMenu.show(objectLabel, e.getX(), e.getY());
+                }
+            }
+            public void mouseReleased(MouseEvent e) {
+
+            }
+            public void mouseEntered(MouseEvent e) {
+
+            }
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        bgPanel[bgNum].add(objectLabel);
+
+    }
+    public void createArrowButton(int bgNum, int x, int y, int width, int height, String arrowFileName, String command) {
+        ImageIcon arrowIcon = new ImageIcon(getClass().getResource(arrowFileName));
+
+        JButton arrowButton = new JButton();
+        arrowButton.setBounds(x, y, width, height);
+        arrowButton.setBackground(null);
+        arrowButton.setContentAreaFilled(false);
+        arrowButton.setFocusPainted(false);
+        arrowButton.setIcon(arrowIcon);
+        arrowButton.addActionListener(gm.aHandler);
+        arrowButton.setActionCommand(command);
+        arrowButton.setBorderPainted(false);
+
+        bgPanel[bgNum].add(arrowButton);
+    }
+    public void generateScene(){
+        //SCENE1
         createBackground(1, "/firstScene3.png");
-        createObject(1,440,150,200,200,"/hut2.png");
-        createObject(1,310,280,70,70,"/chest.png");
-        createObject(1,70,180,150,150,"/guard.png");
+        createObject(1,440,150,200,200,"/hut2.png", "Look", "Talk", "Rest", "lookHut", "talkHut", "restHut");
+        createObject(1,310,280,70,70,"/chest.png", "Look", "Talk", "Open", "lookChest", "talkChest", "openChest");
+        createObject(1,70,180,150,150,"/guard.png", "Look", "Talk", "Attack", "lookGuard", "talkGuard", "attackGuard");
+        createArrowButton(1,5,150,50,50,"/arrowleft.png","goScene2");
+        bgPanel[1].add(bgLabel[1]);
+
+        //SCENE2
+        createBackground(2,"/secondScene.jpg");
+        createObject(2,0,100,100,300,"/blank.png", "Look", "Talk", "Enter", "lookCave", "talkCave", "enterCave");
+        createObject(2,355,250,50,50,"/blank.png", "Look", "Talk", "Search", "lookRoot", "talkRoot", "searchRoot");
+        createArrowButton(2,650,150,50,50,"/arrowright.png","goScene1");
+        bgPanel[2].add(bgLabel[2]);
     }
 }
