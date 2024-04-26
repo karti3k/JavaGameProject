@@ -1,4 +1,4 @@
-# Text-Based Adventure Game
+# Text-Based Adventure Game: "Adventure Quest - Java Game"
 
 This is a simple text-based adventure game implemented in Java. The game consists of multiple scenes where the player can interact with objects and make choices that affect the outcome of the game.
 
