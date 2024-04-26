@@ -10,7 +10,7 @@ This is a simple text-based adventure game implemented in Java. The game consist
 
 ## Screenshots
 
-<!-- Add screenshots of your game here -->
+![Screenshot (779)](https://github.com/karti3k/JavaGameProject/assets/97697722/5488f811-e860-4e68-af83-6b86a12c1385)
 
 ## Getting Started
 
@@ -19,8 +19,8 @@ To run the game locally, follow these steps:
 1. Clone the repository:
 
 2. Navigate to the project directory:
-
 cd your-repository
+
 3. Compile and run the game:
 
 javac Main/GameManager.java
