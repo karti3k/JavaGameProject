@@ -16,9 +16,18 @@ public class Event01 {
     {
         gm.ui.messageText.setText("Who are you talking to?");
     }
-    public void restHut()
-    {
-        gm.ui.messageText.setText("You rest at the house. \n(Your life has recovered)");
+    public void restHut() {
+
+        if(gm.player.playerLife != gm.player.playerMaxLife) {
+            gm.ui.messageText.setText("You rest at the house.\n(Your life has recovered)");
+            gm.player.playerLife++;
+            gm.player.updatePlayerStatus();
+
+        }
+        else {
+            gm.ui.messageText.setText("Your life is full.");
+        }
+
     }
     public void lookGuard()
     {
@@ -28,9 +37,34 @@ public class Event01 {
     {
         gm.ui.messageText.setText("Guard: Don't go any further without a weapon!\nYou should check the chest over there!");
     }
-    public void attackGuard()
-    {
-        gm.ui.messageText.setText("Guard: Hey, don't be stupid!");
+    public void attackGuard() {
+        if(gm.player.hasShield==0) {
+            if(gm.player.hasSword==0) {
+                if(gm.player.playerLife!=1) {
+                    gm.ui.messageText.setText("Guard: Hey, don't be stupid!\n(The guard hits you back and your life decreases by 1)");
+                    gm.player.playerLife--;
+
+
+                }
+                else if(gm.player.playerLife==1) {
+                    gm.ui.messageText.setText("Guard: What a fool.");
+                    gm.player.playerLife--;
+                    gm.sChanger.showGameOverScreen(1);
+                }
+            }
+            else if(gm.player.hasSword==1) {
+                gm.ui.messageText.setText("Guard: Oh, shit! \n(You have defeated the guard and gotten his shield!)");
+                gm.player.hasShield=1;
+
+
+            }
+            gm.player.updatePlayerStatus();
+        }
+        else {
+            gm.ui.messageText.setText("Guard: Just leave me alone.");
+
+        }
+
     }
     public void lookChest()
     {
@@ -40,8 +74,16 @@ public class Event01 {
     {
         gm.ui.messageText.setText("You talk to chest but it says nothing.");
     }
-    public void openChest()
-    {
-        gm.ui.messageText.setText("You open the chest and find a sword!");
+    public void openChest() {
+        if(gm.player.hasSword==0) {
+            gm.ui.messageText.setText("You open the chest and find a sword!");
+            gm.player.hasSword=1;
+            gm.player.updatePlayerStatus();
+        }
+        else {
+            gm.ui.messageText.setText("There's nothing inside...");
+        }
+
     }
+
 }
