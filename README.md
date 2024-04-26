@@ -20,6 +20,10 @@ Screenshot3
 
 Screenshot4
 ![Screenshot (782)](https://github.com/karti3k/JavaGameProject/assets/97697722/268a940e-3576-41f8-9cc9-9611f6f84011)
+
+Screenshot5
+![Screenshot (783)](https://github.com/karti3k/JavaGameProject/assets/97697722/fd89dc9d-36ec-4e12-8a21-5e7507d66c29)
+
 ## Getting Started
 
 To run the game locally, follow these steps:
