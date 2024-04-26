@@ -29,6 +29,6 @@ Screenshot5
 To run the game easily:
 
 1. You must have IntelliJ IDEA Community Edition installed on your pc, if not plese download and install it as it will hardly take minutes.
-2. Clone this repoitory locally on your pc. If you are using windows them open gitbash and type: git clone <copied-url>
+2. Clone this repoitory locally on your pc. If you are using windows them open gitbash and type: git clone https://github.com/karti3k/JavaGameProject.git
 3. When the repository is cloned. A folder will be created named JavaGameProject.
 4. Open this folder through IntelliJ IDEA and run GameManager.java file
