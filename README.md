@@ -1,6 +1,6 @@
 # Text-Based Adventure Game: "Adventure Quest - Java Game"
 
-This is a simple text-based adventure game implemented in Java. The game consists of multiple scenes where the player can interact with objects and make choices that affect the outcome of the game.
+Adventure Quest is a simple text-based adventure game implemented in Java using Java Swing for the user interface. The game consists of multiple scenes where the player can interact with objects and make choices that affect the outcome of the game.
 
 ## Features
 
@@ -26,13 +26,9 @@ Screenshot5
 
 ## Getting Started
 
-To run the game locally, follow these steps:
+To run the game easily:
 
-1. Clone the repository:
-
-2. Navigate to the project directory:
-cd your-repository
-
-3. Compile and run the game:
-- javac Main/GameManager.java
-- java Main.GameManager
+1. You must have IntelliJ IDEA Community Edition installed on your pc, if not plese download and install it as it will hardly take minutes.
+2. Clone this repoitory locally on your pc. If you are using windows them open gitbash and type: git clone <copied-url>
+3. When the repository is cloned. A folder will be created named JavaGameProject.
+4. Open this folder through IntelliJ IDEA and run GameManager.java file
