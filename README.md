@@ -9,9 +9,11 @@ This is a simple text-based adventure game implemented in Java. The game consist
 - **Choice-Based Gameplay**: The player can make choices that affect the outcome of the game.
 
 ## Screenshots
-
+Screenshot1
 ![Screenshot (779)](https://github.com/karti3k/JavaGameProject/assets/97697722/5488f811-e860-4e68-af83-6b86a12c1385)
 
+Screenshot2
+![Screenshot (780)](https://github.com/karti3k/JavaGameProject/assets/97697722/6a42577a-0c26-406b-9343-d74d65a9da5e)
 ## Getting Started
 
 To run the game locally, follow these steps:
@@ -22,6 +24,5 @@ To run the game locally, follow these steps:
 cd your-repository
 
 3. Compile and run the game:
-
-javac Main/GameManager.java
-java Main.GameManager
+- javac Main/GameManager.java
+- java Main.GameManager
