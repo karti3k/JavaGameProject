@@ -18,6 +18,7 @@ public class ActionHandler implements ActionListener {
 
         switch(yourChoice)
         {
+            //SCENE1
             case "lookHut": gm.ev1.lookHut(); break;
             case "talkHut": gm.ev1.talkHut(); break;
             case "restHut": gm.ev1.restHut(); break;
@@ -27,10 +28,18 @@ public class ActionHandler implements ActionListener {
             case "lookChest": gm.ev1.lookChest(); break;
             case "talkChest": gm.ev1.talkChest(); break;
             case "openChest": gm.ev1.openChest(); break;
-
+            //SCENE2
+            case "lookCave": gm.ev2.lookCave();break;
+            case "talkCave": gm.ev2.talkCave();break;
+            case "enterCave": gm.ev2.enterCave();break;
+            case "lookRoot": gm.ev2.lookRoot();break;
+            case "talkRoot": gm.ev2.talkRoot();break;
+            case "searchRoot": gm.ev2.searchRoot();break;
             // Change Scenes
             case "goScene1": gm.sChanger.showSceen1(); break;
             case "goScene2": gm.sChanger.showSceen2(); break;
+            // OTHERS
+            case "restart": gm.sChanger.existGameOverScreen(); gm.sChanger.showSceen1(); break;
         }
     }
 }
